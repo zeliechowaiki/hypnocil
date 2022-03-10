@@ -1,13 +1,15 @@
-import React from "react"
+import {React} from "react"
 
-function Header() {
+function Header({onPatientSearch, search}) {
+
     return(
         <header>
             <div>
-                <img src="./images/hypnocil-logo.png"/>
+                <img src="./images/hypnocil-logo.png" alt="Hypnocil logo"/>
                 <h1>Clinical Trials</h1>
             </div>
-            <input id="search" type="text" placeholder="Search..."></input>
+            <input id="search" type="text" placeholder="Search..."
+            value={search} onChange={e => onPatientSearch(e.target.value)} ></input>
         </header>
     );
 }

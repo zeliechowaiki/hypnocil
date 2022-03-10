@@ -1,6 +1,8 @@
-import React from "react"
+import {React} from "react"
+import PatientRow from "./PatientRow"
 
-function PatientList() {
+function PatientList({patients, onDeleteClick}) {
+
     return(
       <table>
           <tbody>
@@ -10,7 +12,13 @@ function PatientList() {
                 <th>Patient Name</th>
                 <th>Noted Side Effects</th>
             </tr>
-            {/* Create <Patient/> components here. */}
+            {
+              patients.map((patient) => {
+                return (
+                  <PatientRow key={patient.id} patient={patient} onDeleteClick={onDeleteClick} />
+                )
+              })
+            }
           </tbody>
       </table>  
     );
